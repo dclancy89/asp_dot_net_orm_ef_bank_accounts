@@ -1,0 +1,30 @@
+<h1>Account Dashboard</h1>
+<h3>Welcome @ViewBag.User.FirstName</h3>
+
+<a href="users/@ViewBag.User.Id/accounts/create">Create Account</a>
+
+
+
+<h4>Account Snapshots</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Account Number</th>
+            <th>Current Balance</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@{
+    
+    @foreach(var account in @ViewBag.User.Accounts)
+    {
+        <tr>
+            <td>@account.Id</td>
+            <td>@account.AccountBalance</td>
+            <td><a href="/users/@ViewBag.User.Id/accounts/@account.Id">View</a></td>
+        </tr>
+    }
+}
+    </tbody>
+</table>

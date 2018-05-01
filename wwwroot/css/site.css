@@ -1,0 +1,26 @@
+/*Write all of your CSS here*/
+form#login label, form#login input[type="submit"] {
+    display: block;
+}
+
+.button {
+    background-color: #4286f4;
+    border: 2px solid #4286f4;
+    color: white;
+    padding: 6px 18px;
+    font-size: 1.1rem;
+    text-decoration: none;
+    margin-top: 1rem;
+    transition: all 0.3s ease 0s;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: transparent;
+    color: #4286f4;
+}
+
+p.error {
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,38 @@
+@model BankAccounts.Models.AccountActivityViewModel
+
+<p class="error">@ViewBag.Error</p>
+
+<h3>Welcome @ViewBag.User.FirstName</h3>
+
+<p>Current Balance: @ViewBag.User.Accounts[0].AccountBalance</p>
+
+<form asp-controller="Account" asp-action="AccountActivity">
+    <label asp-for="Amount"></label>
+    <input asp-for="Amount">
+    <input type="submit" value="Submit">
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Amount</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            @foreach(var record in @ViewBag.User.Accounts[0].Records)
+            {
+                <tr>
+                    <td>@record.Amount</td>
+                    <td>@record.CreatedAt</td>
+                </tr>
+            }
+
+        }
+
+    </tbody>
+</table>
+
+<a href="/dashboard">Back to Dashboard</a>
